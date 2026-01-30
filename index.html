@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISHENGOMA | Cybersecurity Practitioner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #0F172A;   /* Deep Charcoal */
+            --color-secondary: #1E293B; /* Slate Gray */
+            --color-text: #E5E7EB;      /* Off-White */
+            --color-muted: #9CA3AF;     /* Muted Gray */
+            --color-border: #334155;    /* Slate Accent */
+            --color-accent: #2563EB;    /* Professional Blue */
+            --color-hover: #1D4ED8;
+            --radar-opacity: 0.05;
+            --grid-opacity: 0.04;
+        }
+
+        body.light {
+            --color-primary: #F8FAFC;   
+            --color-secondary: #FFFFFF; 
+            --color-text: #111827;      
+            --color-muted: #64748B;     
+            --color-border: #E2E8F0;    
+            --color-accent: #2563EB;    
+            --color-hover: #1D4ED8;
+            --radar-opacity: 0.02;
+            --grid-opacity: 0.08;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 5rem;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-text);
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        ::selection {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--color-primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-border);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-accent);
+        }
+
+        .bg-system {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+            background-color: var(--color-primary);
+        }
+
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(var(--color-border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: var(--grid-opacity);
+        }
+
+        .bg-radar {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200vmax;
+            height: 200vmax;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgb(37 99 235 / var(--radar-opacity)) 90deg,
+                transparent 120deg
+            );
+            -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+            mask-image: radial-gradient(circle at center, black 0%, transparent 70%);
+            animation: radar-spin 30s linear infinite;
+        }
+
+        @keyframes radar-spin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        @keyframes border-glow-pulse {
+            0%, 100% { border-color: var(--color-accent); box-shadow: 0 0 20px rgba(37, 99, 235, 0.2); }
+            50% { border-color: #3b82f6; box-shadow: 0 0 35px rgba(37, 99, 235, 0.4); }
+        }
+
+        @keyframes corner-ping {
+            0% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.5; transform: scale(1); }
+        }
+
+        .hover-glow:hover {
+            animation: border-glow-pulse 3s infinite ease-in-out;
+        }
+
+        .corner-accent-ping:hover {
+            animation: corner-ping 1.5s infinite ease-in-out;
+        }
+        
+        .nav-glass {
+            background: rgba(var(--color-primary-rgb), 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                        accent: 'var(--color-accent)',
+                        hover: 'var(--color-hover)',
+                        text: 'var(--color-text)',
+                        muted: 'var(--color-muted)',
+                        border: 'var(--color-border)'
+                    },
+                    letterSpacing: {
+                        'tight-professional': '-0.02em',
+                        'wide-technical': '0.2em',
+                    }
+                }
+            }
+        }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="bg-system">
+        <div class="bg-grid"></div>
+        <div class="bg-radar"></div>
+    </div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
