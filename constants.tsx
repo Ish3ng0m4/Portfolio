@@ -79,7 +79,6 @@ export const CAPABILITIES: Capability[] = [
     description: 'Evidence-based investigative workflows for threat containment and operational recovery.',
     points: [
       'Advanced Memory Forensics & Rootkit Detection',
-      'Malware Reverse Engineering & Triage',
       'Post-Incident Remediation & Strategic Recovery',
       'Evidentiary Preservation for Legal Review'
     ]
