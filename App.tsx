@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Capabilities from './pages/Capabilities';
 import About from './pages/About';
+import About from './pages/sitemap';
 import { Page } from './types';
 
 const App: React.FC = () => {
